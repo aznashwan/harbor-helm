@@ -95,6 +95,7 @@ spec:
         {{- if not (empty .Values.containerSecurityContext) }}
         securityContext: {{ .Values.containerSecurityContext | toYaml | nindent 10 }}
         {{- end }}
+        command: "/usr/bin/registry_DO_NOT_USE_GC"
         args: ["serve", "/etc/registry/config.yml"]
         envFrom:
         - secretRef:
